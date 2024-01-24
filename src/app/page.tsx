@@ -1,7 +1,7 @@
 import Card from "@/components/card";
 import { getAllShoes } from "@/lib/data";
 
-export default async function ShoesPage() {
+export default async function HomePage() {
   const shoes = await getAllShoes();
 
   return (

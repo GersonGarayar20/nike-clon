@@ -12,7 +12,7 @@ export default async function NavBar() {
   return (
     <header className="sticky top-0 left-0 z-50 w-full bg-white">
       <div className="py-2 md:px-8 px-4 relative">
-        <article className="flex justify-between items-center">
+        <article className="flex gap-2 justify-between items-center">
           <section>
             <Link href={"/"}>
               <Logo />
