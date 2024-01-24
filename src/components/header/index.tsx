@@ -5,6 +5,7 @@ import CountCart from "./count-cart";
 import Search from "./search";
 import Logo from "../icons/logo";
 import Menu from "./menu";
+import { Suspense } from "react";
 
 import { links } from "./links";
 
@@ -30,7 +31,9 @@ export default async function NavBar() {
           </section>
 
           <section className="flex gap-2">
-            <Search />
+            <Suspense>
+              <Search />
+            </Suspense>
             <Link
               className="p-3 hover:bg-neutral-200 rounded-full"
               href={"/favorites"}
