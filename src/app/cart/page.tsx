@@ -5,7 +5,6 @@ import useStore from "@/store/use-store";
 import Trash from "@/components/icons/trash";
 import Link from "next/link";
 import Heart from "@/components/icons/heart";
-import { applyDiscount } from "@/lib/utils";
 
 export default function CartPage() {
   const cartStore = useStore<CartStore, CartStore>(
@@ -28,10 +27,11 @@ export default function CartPage() {
               images,
               sizes,
               size,
+              discount,
               price,
+              discountedPrice,
               category,
               gender,
-              discount,
             }) => (
               <li key={id} className="flex gap-4 py-4 border-b">
                 <Link href={`/product/${id}`}>
@@ -53,13 +53,13 @@ export default function CartPage() {
                         <div>
                           {discount > 0 ? (
                             <div className="flex gap-2">
-                              <span>{applyDiscount(price, discount)} €</span>
+                              <span>{discountedPrice} €</span>
                               <span className="text-neutral-400 line-through">
                                 {price} €
                               </span>
                             </div>
                           ) : (
-                            <p>${price}</p>
+                            <p>${discountedPrice}</p>
                           )}
                         </div>
                       </header>

@@ -68,7 +68,7 @@ export const useCartStore = create<CartStore>()(
         const { cart } = get();
         if (cart.length) {
           return cart
-            .map((item) => item.count * item.price)
+            .map((item) => item.count * item.discountedPrice)
             .reduce((a, b) => a + b);
         }
         return 0;

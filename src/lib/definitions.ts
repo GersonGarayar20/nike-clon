@@ -5,6 +5,7 @@ export interface Shoe {
   description: string;
   price: number;
   discount: number;
+  discountedPrice: number;
   images: string[];
   category: string;
   sizes: number[];

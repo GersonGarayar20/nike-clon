@@ -1,11 +1,11 @@
 import { getShoeById } from "@/lib/data";
-import { applyDiscount } from "@/lib/utils";
 import FormAddToCart from "./form-add-to-cart";
 
 export default async function ShoePage({ params }: { params: { id: string } }) {
   const id = params.id;
 
-  const shoe = await getShoeById(+id);
+  const shoe = await getShoeById(id);
+  console.log(shoe);
 
   if (!shoe) return <div></div>;
 
@@ -25,7 +25,7 @@ export default async function ShoePage({ params }: { params: { id: string } }) {
           <div className="py-2">
             {shoe.discount > 0 ? (
               <div className="flex gap-2">
-                <span>{applyDiscount(shoe.price, shoe.discount)} €</span>
+                <span>{shoe.discountedPrice} €</span>
                 <span className="text-neutral-400 line-through">
                   {shoe.price} €
                 </span>
@@ -34,7 +34,7 @@ export default async function ShoePage({ params }: { params: { id: string } }) {
                 </span>
               </div>
             ) : (
-              <p>{shoe.price} €</p>
+              <p>{shoe.discountedPrice} €</p>
             )}
           </div>
         </header>

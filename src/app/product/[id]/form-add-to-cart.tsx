@@ -80,7 +80,18 @@ export default function FormAddToCart({ shoe }: { shoe: Shoe }) {
                     {shoe.category} - {shoe.gender}
                   </p>
                   <p>Talla {size}</p>
-                  <p>{shoe.price} €</p>
+                  <div className="flex gap-2">
+                    {shoe.discount ? (
+                      <>
+                        <p>{shoe.discountedPrice} €</p>
+                        <p className="text-neutral-400 line-through">
+                          {shoe.price} €
+                        </p>
+                      </>
+                    ) : (
+                      <p>{shoe.discountedPrice} €</p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
